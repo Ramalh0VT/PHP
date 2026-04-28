@@ -14,7 +14,7 @@ $dadosAtualizados =
 	'Categoria' => 'Informática'
 ];
 
-$linhasAfetadas = update($pdo, 'livros', 'id = '.$idLivro.'');
+$linhasAfetadas = update($pdo, 'livros', $dadosAtualizados ,"id = $idLivro");
 
 if ($linhasAfetadas > 0) {
 	echo 'Livro atualizado com sucesso!!!';
