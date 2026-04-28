@@ -1,2 +1,3 @@
 # PHP
-A repository to store some of the things that i do regarding PHP.
+
+A repository to save what i do with php
