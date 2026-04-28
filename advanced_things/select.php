@@ -1,7 +1,7 @@
 <?php
 require_once 'crud.php';
 
-$livros = readAll($pdo, 'livros', 'preco < 50 and id < 50');
+$livros = readAll($pdo, 'livros', 'id < 50');
 
 print '<table border=1>
 <tr>
@@ -14,6 +14,14 @@ print '<table border=1>
 
 foreach($livros as $livro) {
 		echo "<tr><td>ID: ".$livro['id']."</td><td> Titulo: ".$livro['titulo']."</td></tr>";
+}
+
+
+$livro = read($pdo, 'livros', 'id = 675');
+
+if ($livro){
+	echo '<p> O livro em questão é: '.$livro['titulo'].'</p>';
+
 }
 
 print "</table>";
