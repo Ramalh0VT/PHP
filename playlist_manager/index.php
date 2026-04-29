@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $novaMusica = [
             'nome' => $nome       
         ];
-        $idNovaMusica = create($pdo, 'livros', $novoLivro);
+        $idNovaMusica = create($pdo, 'musicas', $novaMusica);
 }
 ?>
 <!DOCTYPE html>
@@ -26,13 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<main>
 		<div class="box">
             <div>
-			<h1>Bem vindo ao cadastro de músicas!</h1>
+			<h1 class="title">Bem vindo ao cadastro de músicas!</h1>
 	    </div>
 	    <div>
 			<form action="./index.php" method="POST">
 				<h1>Nome da música:</h1>
 				<input type="text" name="nome" required maxlength="100">
-				<button type="submit">Cadastrar</button>	
+				<button type="submit">Cadastrar</button>
 			</form>
  	     </div>
 		</div>

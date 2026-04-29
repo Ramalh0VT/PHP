@@ -7,7 +7,7 @@ $musicas = readAll($pdo, 'musicas');
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exibição de músicas</title>
+    <title>Lista de músicas</title>
 </head>
 <body>
     <header>
@@ -19,10 +19,11 @@ $musicas = readAll($pdo, 'musicas');
 	</header>
 	<main>
 		<div class="box">
-			<h1>MÙSICAS ATUAIS</h1>
+			<h1 class="title">MÙSICAS ATUAIS</h1>
 		
+			<div class="flex_box">
 <?php
-print '<table border = 1>
+print '<table border=1>
 	<tr>
 		<th>Número</th>
 		<th>Música</th>
@@ -34,6 +35,7 @@ foreach ($musicas as $musica){
 if (!$musicas){
 	echo 'Sem músicas no momento!';
 }?>
+	</div>
 		</div>
 	</main>
 </body>

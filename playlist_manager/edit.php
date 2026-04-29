@@ -1,0 +1,66 @@
+<?php
+require_once 'crud.php';
+$dadosAtualizados = 
+	[
+	'titulo' => 'Pife for dummies',
+	'isbn' => '9781118008',
+	'autor' => 'Jane Doe',
+	'preco' => 299.99,
+	'situacao' => 'Indisponivel',
+	'Categoria' => 'Informática'
+];
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nome = htmlspecialchars(trim($_POST['nome']));
+    $id = htmlspecialchars(trim($_POST['id']));
+        $dadosAtualizados = [
+            'nome' => $nome 
+        ];
+
+$linhasAfetadas = update($pdo, 'livros', $dadosAtualizados ,"id = $id");
+
+if ($linhasAfetadas > 0) {
+	echo 'Livro atualizado com sucesso!!!';
+}
+
+else{
+	echo 'Não foi possível atualizar o livro!!!'; 	
+}
+}
+?>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar música</title>
+</head>
+<body>
+    <header>
+	<nav>
+		<a href="list.php">Listar</a>
+		<a href="edit.php">Editar</a>
+		<a href="index.php">Adicionar</a>
+	</nav>
+	</header>
+<main>
+		<div class="box">
+            <div>
+			<h1 class="title">Bem vindo à edição de músicas!</h1>
+	    </div>
+	    <div>
+			<form action="./edit.php" method="POST">
+				<h1>Número da música:</h1>
+				<input type="text" name="id" required maxlength="100">
+                <h1>Novo nome da música:</h1>
+                <input type="text" name="nome" required maxlength="100"><br><br>
+                <button type="submit">Cadastrar</button>
+			</form>
+ 	     </div>
+		</div>
+	</main>
+</body>
+</html>
+

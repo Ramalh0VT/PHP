@@ -1,7 +1,26 @@
-*{	font-family:monospace;
+*{	
+	font-family:monospace;
 	margin:0;
 	padding:0;
-	}
+}
+
+p, h1{
+	color:white;
+}
+
+.title{
+	color:red;
+}
+
+body{
+	background-image: linear-gradient(to left, black, rgb(109, 106, 106));
+    background-size:cover;
+    background-repeat:no-repeat;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+}
+
 h1{
 	margin: 1rem;
 }
@@ -36,4 +55,18 @@ nav a:hover{
 	margin: 1rem;
 }
 
-form
+.flex_box{
+	display:flex;
+	justify-content:center;
+}
+
+table{
+	background-color:rgb(143, 143, 143);
+	border: solid black; 	
+}
+
+table td{
+	padding:0.5em;
+}
+
+
