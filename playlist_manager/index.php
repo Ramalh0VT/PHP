@@ -1,3 +1,12 @@
+<?php require_once 'crud.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nome = htmlspecialchars(trim($_POST['nome']));
+        $novaMusica = [
+            'nome' => $nome       
+        ];
+        $idNovaMusica = create($pdo, 'livros', $novoLivro);
+}
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -20,9 +29,9 @@
 			<h1>Bem vindo ao cadastro de músicas!</h1>
 	    </div>
 	    <div>
-			<form>
+			<form action="./index.php" method="POST">
 				<h1>Nome da música:</h1>
-				<input type="text" name="nome">
+				<input type="text" name="nome" required maxlength="100">
 				<button type="submit">Cadastrar</button>	
 			</form>
  	     </div>
