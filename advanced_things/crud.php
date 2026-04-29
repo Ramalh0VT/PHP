@@ -1,5 +1,4 @@
 <?php
-
 // Configurações de conexão com o banco de dados (ajuste conforme sua configuração)
 $host = "localhost";
 $port = 3306;
