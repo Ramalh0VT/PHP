@@ -1,15 +1,5 @@
 <?php
 require_once 'crud.php';
-$dadosAtualizados = 
-	[
-	'titulo' => 'Pife for dummies',
-	'isbn' => '9781118008',
-	'autor' => 'Jane Doe',
-	'preco' => 299.99,
-	'situacao' => 'Indisponivel',
-	'Categoria' => 'Informática'
-];
-
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = htmlspecialchars(trim($_POST['nome']));
@@ -17,16 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dadosAtualizados = [
             'nome' => $nome 
         ];
-
-$linhasAfetadas = update($pdo, 'livros', $dadosAtualizados ,"id = $id");
-
-if ($linhasAfetadas > 0) {
-	echo 'Livro atualizado com sucesso!!!';
-}
-
-else{
-	echo 'Não foi possível atualizar o livro!!!'; 	
-}
+$linhasAfetadas = update($pdo, 'musicas', $dadosAtualizados ,"id = $id");
 }
 ?>
 <!DOCTYPE html>
@@ -43,6 +24,7 @@ else{
 		<a href="list.php">Listar</a>
 		<a href="edit.php">Editar</a>
 		<a href="index.php">Adicionar</a>
+        <a href="delete.php"> Apagar </a>
 	</nav>
 	</header>
 <main>
@@ -56,7 +38,7 @@ else{
 				<input type="text" name="id" required maxlength="100">
                 <h1>Novo nome da música:</h1>
                 <input type="text" name="nome" required maxlength="100"><br><br>
-                <button type="submit">Cadastrar</button>
+                <button type="submit">Editar</button>
 			</form>
  	     </div>
 		</div>

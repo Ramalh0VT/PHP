@@ -15,6 +15,7 @@ $musicas = readAll($pdo, 'musicas');
 		<a href="list.php">Listar</a>
 		<a href="edit.php">Editar</a>
 		<a href="index.php">Adicionar</a>
+        <a href="delete.php"> Apagar </a>
 	</nav>
 	</header>
 	<main>

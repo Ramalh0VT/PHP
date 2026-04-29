@@ -1,10 +1,9 @@
-<?php require_once 'crud.php';
+<?php
+require_once 'crud.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = htmlspecialchars(trim($_POST['nome']));
-        $novaMusica = [
-            'nome' => $nome       
-        ];
-        $idNovaMusica = create($pdo, 'musicas', $novaMusica);
+    $id = htmlspecialchars(trim($_POST['id']));
+    $deleted = delete($pdo, 'musicas', 'id = '.$id);
 }
 ?>
 <!DOCTYPE html>
@@ -13,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exibição de músicas</title>
+    <title>Editar música</title>
 </head>
 <body>
     <header>
@@ -24,19 +23,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="delete.php"> Apagar </a>
 	</nav>
 	</header>
-	<main>
+<main>
 		<div class="box">
             <div>
-			<h1 class="title">Bem vindo ao cadastro de músicas!</h1>
+			<h1 class="title">Bem vindo à pagina de exclusão de músicas!</h1>
 	    </div>
 	    <div>
-			<form action="./index.php" method="POST">
-				<h1>Nome da música:</h1>
-				<input type="text" name="nome" required maxlength="100">
-				<button type="submit">Cadastrar</button>
+			<form action="./delete.php" method="POST">
+				<h1>Número da música à ser deletada:</h1>
+				<input type="text" name="id" required maxlength="100">
+                <button type="submit">Deletar</button>
 			</form>
  	     </div>
 		</div>
 	</main>
 </body>
 </html>
+
