@@ -32,7 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			<form action="./delete.php" method="POST">
 				<h1>Número da música à ser deletada:</h1>
 				<input type="text" name="id" required maxlength="100">
-                <button type="submit">Deletar</button>
+		<div>
+		<button type="submit">Deletar</button>
+		</div>
 			</form>
  	     </div>
 		</div>

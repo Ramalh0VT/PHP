@@ -21,21 +21,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		<a href="list.php">Listar</a>
 		<a href="edit.php">Editar</a>
 		<a href="index.php">Adicionar</a>
-        <a href="delete.php"> Apagar </a>
+        	<a href="delete.php">Apagar</a>
 	</nav>
 	</header>
 	<main>
 		<div class="box">
-            <div>
-			<h1 class="title">Bem vindo ao cadastro de músicas!</h1>
-	    </div>
-	    <div>
-			<form action="./index.php" method="POST">
-				<h1>Nome da música:</h1>
-				<input type="text" name="nome" required maxlength="100">
-				<button type="submit">Cadastrar</button>
-			</form>
- 	     </div>
+            		<div>
+				<h1 class="title">Bem vindo ao cadastro de músicas!</h1>
+	    		</div>
+	    		<div>
+				<form action="./index.php" method="POST">
+					<h1>Nome da música:</h1>
+					<input type="text" name="nome" required maxlength="100"><br><br>
+					<button type="submit">Cadastrar</button>
+				</form>
+ 	     		</div>
 		</div>
 	</main>
 </body>
