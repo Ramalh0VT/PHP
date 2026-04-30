@@ -10,9 +10,17 @@ table, tr, td {
     border-spacing: 0;
 }
 
-button{
-	padding: 0.5%;
+button,input{
+	padding: clamp(0.5em ,0.5%, 4em);
+	border-radius:1em;
+	border:none;
+	width: clamp(7rem,calc(30vw + 0.1rem),21rem);
 }
+
+button{
+	width: clamp(6rem,calc(7vw + 0.1rem),10rem) !important;
+}
+
 
 p, h1{
 	color:white;
@@ -64,7 +72,7 @@ nav a:hover{
 }
 
 .box div{
-	margin: clamp(4rem, calc(4vw + 0.1rem), 7rem);
+	margin: clamp(2.8rem, calc(4vw + 0.1rem), 7rem);
 }
 
 .flex_box{

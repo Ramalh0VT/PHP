@@ -30,13 +30,13 @@ $linhasAfetadas = update($pdo, 'musicas', $dadosAtualizados ,"id = $id");
 <main>
 		<div class="box">
             <div>
-			<h1 class="title">Bem vindo à edição de músicas!</h1>
+			<h1 class="title">Edição de músicas</h1>
 	    </div>
 	    <div>
 			<form action="./edit.php" method="POST">
-				<h1>Número da música:</h1>
+				<h1>Número</h1>
 				<input type="text" name="id" required maxlength="100">
-                <h1>Novo nome da música:</h1>
+                <h1>Novo nome</h1>
                 <input type="text" name="nome" required maxlength="100"><br><br>
                 <button type="submit">Editar</button>
 			</form>

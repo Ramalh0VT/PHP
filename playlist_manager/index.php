@@ -27,11 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<main>
 		<div class="box">
             		<div>
-				<h1 class="title">Bem vindo ao cadastro de músicas!</h1>
+				<h1 class="title">Adicionar músicas</h1>
 	    		</div>
 	    		<div>
 				<form action="./index.php" method="POST">
-					<h1>Nome da música:</h1>
+					<h1>Nome</h1>
 					<input type="text" name="nome" required maxlength="100"><br><br>
 					<button type="submit">Cadastrar</button>
 				</form>

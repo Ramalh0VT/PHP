@@ -26,15 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <main>
 		<div class="box">
             <div>
-			<h1 class="title">Bem vindo à pagina de exclusão de músicas!</h1>
+			<h1 class="title">Exclusão de músicas</h1>
 	    </div>
 	    <div>
 			<form action="./delete.php" method="POST">
-				<h1>Número da música à ser deletada:</h1>
-				<input type="text" name="id" required maxlength="100">
-		<div>
-		<button type="submit">Deletar</button>
-		</div>
+				<h1>Número da música</h1>
+				<input type="text" name="id" required maxlength="100"><br><br>
+				<button type="submit">Deletar</button>
+		
 			</form>
  	     </div>
 		</div>
