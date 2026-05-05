@@ -15,16 +15,16 @@
 			<label for="autor">Autor</label><br>
 				<input type="text" id="autor" name="autor" placeholder="autor"maxlength="255"><br>
 			<label for="preco">Preço</label><br>
-				<input type="number" maxlength="12" step="0.01" id="preco" name="preco" placeholder="Preço"><br>
+				<input type="text" maxlength="12" id="preco" name="preco" placeholder="Preço"><br>
 			<label for="situacao">Situação</label><br>
-				<select>
-					<option>Disponível</option>
-					<option>Indisponível</option>
+				<select name="situacao" id="situacao">
+					<option value="disponivel">Disponível</option>
+					<option value="indisponivel">Indisponível</option>
 				</select><br>
 			<label for="categoria">Categoria</label><br>
 				<input type="text" maxlength="100" id="categoria" name="categoria" placeholder="categoria"><br>
 			<label for="capa">Capa</label><br>
-				<input type="file" maxlength="1000" id="capa" accept="image/*" name="capa"><br>
+				<input type="file" maxlength="1000" id="arquivo" accept="image/*" name="arquivo"><br>
 			<button type="submit">ENVIAR</button><br>
 		</form>
 	<main>
