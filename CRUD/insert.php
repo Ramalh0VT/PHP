@@ -35,5 +35,23 @@ $novonome = "capa_".uniqid().".".$extensao;
 
 $dir = "uploads/";
 
-$caminho = $dir
+$caminho = $dir."idLivroNovo/";
+
+$file = $caminho.$novonome;
+
+if (!is_dir($caminho)) {
+	mkdir($caminho, 0755);
+}
+
+if (move_upload_file($_FILES['arquivo']['tmp_name'], $file)) {
+	$capaUrl = $file;
+	update($pdo, 'livros', ['capa' => $capaUrl],
+	"id = $idLivroNovo");
+	echo "Livro inserido com sucesso! ID:
+	$idLivroNovo";
+	echo "<a href='select.php? id=$idLivroNovo'>Ver Livro</a>"
+} else {
+	echo "Erro ao enviar a imagem da cpaa."
+}
+
 ?>
