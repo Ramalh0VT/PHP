@@ -29,7 +29,6 @@ if ($_FILES['arquivo']['size'] > $tamanho_max) {
 
 $extensao = pathinfo($_FILES['arquivo']['name'],PATHINFO_EXTENSION);
 
-
 $novonome = "capa_".uniqid().".".$extensao;
 
 $dir = "./";
