@@ -51,5 +51,4 @@ if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $file)) {
 } else {
 	echo "Erro ao enviar a imagem da capa.";
 }
-
 ?>
