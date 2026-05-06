@@ -7,22 +7,18 @@ $header = '<nav> <a href="index.php">Adicionar</a>
 	</nav>';
 
 if($path === 'index.php'){
-	$title = 'Adicionar figurinha';
+	$title = 'Adicionar';
 	$main = '
 		<h1>Adicionar figurinha</h1>
-		<form action="insert.php" method="POST" enctype="multipart/form-data">
+		<form action="./index.php" method="POST" enctype="multipart/form-data">
 			<label for="nome">Nome</label><br>
 				<input type="text" maxlength="200" id="nome" name="nome" placeholder="Nome" required><br>
 			<label for="foto">Foto</label><br>
 				<input type="file" id="foto" name="foto" required><br>
 			<button type="submit">Adicionar</button><br>
 		</form>';
-}
 
-elseif($path === 'insert.php'){
-	$title = 'Adicionar figurinha';
-	$main = null;
-	
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){	
 require_once 'crud.php';
 $nova_figurinha = [
@@ -64,6 +60,26 @@ if (move_uploaded_file($_FILES['foto']['tmp_name'], $file)){
 }
 	
 }
+
+elseif($path === 'select.php'){
+	$title = 'Listar';
+	$main = null;
+	require_once 'crud.php';
+	$figurinhas = readAll ($pdo, 'figurinhas');
+	print '<table border=1>
+	<tr>
+		<th>Número</th>
+		<th>Nome</th>
+		<th>Foto</th>
+	</tr>';
+
+	foreach($figurinhas as $figurinha){
+		echo "<tr><td>Nùmero: ".$figurinha['id']."</td><td>Nome: ".$figurinha['nome']."</td><td> <img src='".$figurinha['foto']."'</tr>";
+	}
+	print '</table>';
+
+}
+
 // body variables on the code
 //
 //
