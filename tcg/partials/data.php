@@ -7,12 +7,13 @@ if($path === 'index.php'){
 	$title = 'Adicionar figurinha';
 	$main = '
 		<h1>Adicionar figurinha</h1>
-		<form>
-			<label for="nome">Nome</label>
-				<input type="text" maxlength=""
-		</form>
-
-';
+		<form action="insert.php" method="POST" enctype="multipart/form-data">
+			<label for="nome">Nome</label><br>
+				<input type="text" maxlength="200" id="nome" name="nome" placeholder="Nome" required><br>
+			<label for="capa">Capa</label><br>
+				<input type="file" id="capa" name="capa" required><br>
+			<button type="submit">Adicionar</button><br>
+		</form>';
 }
 
 // global variables on the code
