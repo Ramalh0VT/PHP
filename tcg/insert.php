@@ -3,7 +3,8 @@
 require_once 'partials/data.php';
 echo $metadata;
 echo $body;
-require_once 'crud.php';
+
+/* require_once 'crud.php';
 $nova_figurinha = [
 	'nome' => $_POST['nome'],
 	'foto' => ''
@@ -39,5 +40,6 @@ if (move_uploaded_file($_FILES['foto']['tmp_name'], $file)){
 	echo "<h1>Figurinha inserida com sucesso! Número: $id_nova_figurinha </h1>";
 	echo "<a href='select.php? id=$id_nova_figurinha'>Ver figurinhas</a>";
 }
-?>	
+?> */
+?>
 </html>
