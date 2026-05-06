@@ -10,8 +10,8 @@ if($path === 'index.php'){
 		<form action="insert.php" method="POST" enctype="multipart/form-data">
 			<label for="nome">Nome</label><br>
 				<input type="text" maxlength="200" id="nome" name="nome" placeholder="Nome" required><br>
-			<label for="capa">Capa</label><br>
-				<input type="file" id="capa" name="capa" required><br>
+			<label for="foto">Foto</label><br>
+				<input type="file" id="foto" name="foto" required><br>
 			<button type="submit">Adicionar</button><br>
 		</form>';
 }

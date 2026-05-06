@@ -47,8 +47,7 @@ if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $file)) {
 	"id = $idLivroNovo");
 	echo "Livro inserido com sucesso! ID:
 	$idLivroNovo";
-	echo "<a href='select.php? id=$idLivroNovo'>Ver Livro</a>";
-} else {
+	echo "<a href='select.php? id=$idLivroNovo'>Ver Livro</a>";} else {
 	echo "Erro ao enviar a imagem da capa.";
 }
 ?>
