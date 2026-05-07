@@ -12,7 +12,7 @@ if($path === 'index.php'){
 		<h1>Adicionar figurinha</h1>
 		<form action="./index.php" method="POST" enctype="multipart/form-data">
 			<label for="nome">Nome</label><br>
-				<input type="text" maxlength="200" id="nome" name="nome" placeholder="Nome" required><br>
+				<input type="number" maxlength="200" id="nome" name="nome" placeholder="Nome" required><br>
 			<label for="foto">Foto</label><br>
 				<input type="file" id="foto" name="foto" required><br>
 			<button type="submit">Adicionar</button><br>
@@ -85,7 +85,7 @@ elseif($path === 'delete.php'){
 		<h1>Apagar figurinha</h1>
 		<form action="./delete.php" method="POST" enctype="multipart/form-data">
 			<label for="id">Número</label><br>
-				<input type="text" id="id" name="id" placeholder="Número" required><br>
+				<input type="number" id="id" name="id" placeholder="Número" required><br>
 			<button type="submit">Remover</button><br>
 		</form>';
 	$figurinhas = readAll($pdo, 'figurinhas');
@@ -107,14 +107,14 @@ elseif($path === 'delete.php'){
 }
 
 elseif($path === 'update.php'){
-	$figurinhas = readAll($pdo, 'figurinhas');
 	require_once 'crud.php';
+	$figurinhas = readAll($pdo, 'figurinhas');
 	$title = 'Atualizar';
 	$main = '
 		<h1>Editar figurinha</h1>
 		<form action="./update.php" method="POST" enctype="multipart/form-data">
 			<label for="id">Número</label><br>
-				<input type="text" id="id" name="nome" placeholder="Número" required><br> 
+				<input type="number" id="id" name="id" placeholder="Número" required><br> 
 			<label for="nome">Novo nome</label><br>
 				<input type="text" maxlength="200" id="nome" name="nome" placeholder="Novo nome" required><br>
 			<label for="foto">Foto</label><br>
