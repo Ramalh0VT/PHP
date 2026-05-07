@@ -22,7 +22,7 @@ if($path === 'index.php'){
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){	
 require_once 'crud.php';
 $nova_figurinha = [
-	'nome' => $_POST['nome'],
+	'nome' => htmlspecialchars(trim($_POST['nome'])),
 	'foto' => ''
 ];
 $allowed_types = ['image/jpeg','image/png', 'image/gif' ];
@@ -54,7 +54,7 @@ $file = $caminho.$new_name;
 if (move_uploaded_file($_FILES['foto']['tmp_name'], $file)){
 	update($pdo, 'figurinhas', ['foto' => $file], "id = $id_nova_figurinha");
 	$main .= "<h1>Figurinha inserida com sucesso! Número: $id_nova_figurinha </h1>
-	<a href='select.php? id=$id_nova_figurinha'>Ver figurinhas</a>";
+	<a href='select.php?id=$id_nova_figurinha'>Ver figurinhas</a>";
 }
  
 }
@@ -79,16 +79,67 @@ elseif($path === 'select.php'){
 }
 
 elseif($path === 'delete.php'){
+	require_once 'crud.php';
 	$title = 'Apagar';
 	$main = '
-		<h1>Apagar figurinha figurinha</h1>
-		<form action="./index.php" method="POST" enctype="multipart/form-data">
-			<label for="nome">Nome</label><br>
-				<input type="text" maxlength="200" id="nome" name="nome" placeholder="Nome" required><br>
-			<label for="foto">Foto</label><br>
-				<input type="file" id="foto" name="foto" required><br>
+		<h1>Apagar figurinha</h1>
+		<form action="./delete.php" method="POST" enctype="multipart/form-data">
+			<label for="id">Número</label><br>
+				<input type="text" id="id" name="id" placeholder="Número" required><br>
 			<button type="submit">Remover</button><br>
 		</form>';
+	$figurinhas = readAll($pdo, 'figurinhas');
+	if($_SERVER['REQUEST_METHOD'] === 'POST'){
+		$id = htmlspecialchars(trim($_POST['id']));
+		foreach($figurinhas as $figurinha){
+			if($figurinha['id'] === $id){
+				$deleted = delete($pdo, 'figurinhas', 'id = '.$id);
+				$main .= "<h1>Figurinha apagada com sucesso! Número: $id </h1>
+				<a href='select.php?id=$id'>Ver figurinhas</a>";
+			}
+			else{	
+				$main .= "<h1>Essa figurinha não existe!</h1>
+				<a href='select.php?id=$id'>Ver figurinhas</a>";
+				break;
+			}
+		}
+	}	
+}
+
+elseif($path === 'update.php'){
+	$figurinhas = readAll($pdo, 'figurinhas');
+	require_once 'crud.php';
+	$title = 'Atualizar';
+	$main = '
+		<h1>Editar figurinha</h1>
+		<form action="./update.php" method="POST" enctype="multipart/form-data">
+			<label for="id">Número</label><br>
+				<input type="text" id="id" name="nome" placeholder="Número" required><br> 
+			<label for="nome">Novo nome</label><br>
+				<input type="text" maxlength="200" id="nome" name="nome" placeholder="Novo nome" required><br>
+			<label for="foto">Foto</label><br>
+				<input type="file" id="foto" name="foto" required><br>
+			<button type="submit">Editar</button><br> 
+		</form>';
+	if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+		$nome = htmlspecialchars(trim($_POST['nome']));
+		$id = htmlspecialchars(trim($_POST['id']));
+		$dados_atualizados = [
+			'nome' => $nome
+		];
+		foreach($figurinhas as $figurinha){
+			if($figurinha['id'] === $id){
+				$main .= "<h1>Figurinha editada com sucesso! Número: $id </h1>
+				<a href='select.php?id=$id'>Ver figurinhas</a>";
+				$afetado = update($pdo, 'figurinhas', $dados_atualizados, "id = $id");
+			}
+			else{	
+				$main .= "<h1>Essa figurinha não existe!</h1>
+				<a href='select.php?id=$id'>Ver figurinhas</a>";
+				break;
+			}
+		}
+	}
 	
 }
 
