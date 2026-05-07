@@ -66,18 +66,30 @@ elseif($path === 'select.php'){
 	$main = null;
 	require_once 'crud.php';
 	$figurinhas = readAll ($pdo, 'figurinhas');
-	print '<table border=1>
+	$main .= '<table border=1>
 	<tr>
 		<th>Número</th>
 		<th>Nome</th>
 		<th>Foto</th>
 	</tr>';
-
 	foreach($figurinhas as $figurinha){
-		echo "<tr><td>Nùmero: ".$figurinha['id']."</td><td>Nome: ".$figurinha['nome']."</td><td> <img src='".$figurinha['foto']."'</tr>";
+		$main .= "<tr><td>Nùmero: ".$figurinha['id']."</td><td>Nome: ".$figurinha['nome']."</td><td> <img src='".$figurinha['foto']."'</tr>";
 	}
-	print '</table>';
+	$main .= '</table>';
+}
 
+elseif($path === 'delete.php'){
+	$title = 'Apagar';
+	$main = '
+		<h1>Apagar figurinha figurinha</h1>
+		<form action="./index.php" method="POST" enctype="multipart/form-data">
+			<label for="nome">Nome</label><br>
+				<input type="text" maxlength="200" id="nome" name="nome" placeholder="Nome" required><br>
+			<label for="foto">Foto</label><br>
+				<input type="file" id="foto" name="foto" required><br>
+			<button type="submit">Remover</button><br>
+		</form>';
+	
 }
 
 // body variables on the code
