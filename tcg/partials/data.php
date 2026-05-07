@@ -12,7 +12,7 @@ if($path === 'index.php'){
 		<h1>Adicionar figurinha</h1>
 		<form action="./index.php" method="POST" enctype="multipart/form-data">
 			<label for="nome">Nome</label><br>
-				<input type="number" maxlength="200" id="nome" name="nome" placeholder="Nome" required><br>
+				<input type="text" maxlength="200" id="nome" name="nome" placeholder="Nome" required><br>
 			<label for="foto">Foto</label><br>
 				<input type="file" id="foto" name="foto" required><br>
 			<button type="submit">Adicionar</button><br>
@@ -80,6 +80,7 @@ elseif($path === 'select.php'){
 
 elseif($path === 'delete.php'){
 	require_once 'crud.php';
+	$is_true = null;
 	$title = 'Apagar';
 	$main = '
 		<h1>Apagar figurinha</h1>
@@ -93,21 +94,23 @@ elseif($path === 'delete.php'){
 		$id = htmlspecialchars(trim($_POST['id']));
 		foreach($figurinhas as $figurinha){
 			if($figurinha['id'] === $id){
-				$deleted = delete($pdo, 'figurinhas', 'id = '.$id);
 				$main .= "<h1>Figurinha apagada com sucesso! Número: $id </h1>
 				<a href='select.php?id=$id'>Ver figurinhas</a>";
-			}
-			else{	
-				$main .= "<h1>Essa figurinha não existe!</h1>
-				<a href='select.php?id=$id'>Ver figurinhas</a>";
-				break;
+				$afetado = delete($pdo, 'figurinhas','id = '.$id);
+				$is_true = true;
 			}
 		}
+			if($is_true === null)
+			{	
+				$main .= "<h1>Essa figurinha não existe!</h1>
+				<a href='select.php?id=$id'>Ver figurinhas</a>";
+			}
 	}	
 }
 
 elseif($path === 'update.php'){
 	require_once 'crud.php';
+	$is_true = null;
 	$figurinhas = readAll($pdo, 'figurinhas');
 	$title = 'Atualizar';
 	$main = '
@@ -132,13 +135,14 @@ elseif($path === 'update.php'){
 				$main .= "<h1>Figurinha editada com sucesso! Número: $id </h1>
 				<a href='select.php?id=$id'>Ver figurinhas</a>";
 				$afetado = update($pdo, 'figurinhas', $dados_atualizados, "id = $id");
-			}
-			else{	
-				$main .= "<h1>Essa figurinha não existe!</h1>
-				<a href='select.php?id=$id'>Ver figurinhas</a>";
-				break;
+				$is_true = true;
 			}
 		}
+			if($is_true === null)
+			{	
+				$main .= "<h1>Essa figurinha não existe!</h1>
+				<a href='select.php?id=$id'>Ver figurinhas</a>";
+			}
 	}
 	
 }

@@ -1,0 +1,23 @@
+*{
+text-align:center;
+margin:0 auto;
+margin-bottom: 2rem;
+font-family: sans-serif, monospace;
+}
+
+body{
+    background-image: linear-gradient(to left, green, yellow);
+    background-size:cover;
+    background-repeat:no-repeat;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+}
+
+h1{
+color: black;
+}
+
+nav{
+text-decoration:none;
+}
