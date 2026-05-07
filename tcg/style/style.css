@@ -5,9 +5,10 @@ margin-bottom: 2rem;
 font-family: sans-serif, monospace;
 }
 
-body{
+html{
     background-image: linear-gradient(to left, green, yellow);
     background-size:cover;
+    object-fit:cover;
     background-repeat:no-repeat;
     min-height: 100vh;
     min-height: 100dvh;
@@ -19,5 +20,41 @@ color: black;
 }
 
 nav{
-text-decoration:none;
+background-color:black;
+text-align:justify;
+height:6rem;
 }
+
+
+ul{
+display:flex;
+align-items:center;
+text-decoration:none;
+justify-content:center;
+}
+
+a{
+text-decoration:none;
+color:white;
+font-size: 2rem;
+transition:0.3s;
+
+padding:7px;	
+}
+
+ul li{
+margin-top:2rem;
+}
+
+a:hover{
+	color:black;
+	background-color:white;
+	border-radius:1em;
+}
+
+table{
+background-color:black;
+color:white;
+border:solid;
+}
+

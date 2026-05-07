@@ -1,10 +1,15 @@
 <?php
 $path = basename($_SERVER['SCRIPT_FILENAME']);
-$header = '<nav> <a href="index.php">Adicionar</a>
-		<a href="select.php">Listar</a>
-		<a href="update.php">Atualizar</a>
-		<a href="delete.php">Apagar</a> 
+$header = '<nav> 
+	
+<ul>
+<li><a href="index.php">Adicionar</a></li>
+		<li><a href="select.php">Listar</a></li>
+		<li><a href="update.php">Atualizar</a></li>
+		<li><a href="delete.php">Apagar</a> </li>
+	</ul>
 	</nav>';
+
 
 if($path === 'index.php'){
 	$title = 'Adicionar';
